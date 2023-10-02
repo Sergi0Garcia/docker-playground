@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+# creating local mysql database
+  db: 
+    build: 
+      context: ./database
+    container_name: docker-playground_db
+    networks:
+      - mynetwork
+
+# running metabase service in network
+  metabase:
+    image: metabase/metabase
+    container_name: metabase
+    ports:
+      - "3000:3000"
+    networks: 
+      - mynetwork
+
+networks: 
+  mynetwork:
