@@ -1,1 +1,2 @@
-./debian/.env
+.env*
+debian/.env
