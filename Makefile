@@ -6,7 +6,7 @@
 #    By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 10:46:48 by segarcia          #+#    #+#              #
-#    Updated: 2023/10/02 11:21:44 by segarcia         ###   ########.fr        #
+#    Updated: 2023/10/02 12:04:39 by segarcia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,8 @@ down:
 
 debian: 
 	docker build -t my-debian ./debian/
-	docker run -it --network docker-playground_mynetwork my-debian
+	docker run --env-file ./debian/.env -it --network docker-playground_mynetwork my-debian
+
+# docker run -e DOPPLER_TOKEN="" -it --network docker-playground_mynetwork my-debian
 
 .PHONY: prune build up down debian
